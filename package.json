@@ -1,0 +1,12 @@
+{
+  "name": "my-flow-project",
+  "version": "1.0.0",
+  "devDependencies": {
+    "flow-bin": "^0.41.0",
+    "flow-remove-types": "*"
+  },
+  "scripts": {
+    "build": "flow-remove-types -d lib/ src/",
+    "flow": "flow"
+  }
+}
