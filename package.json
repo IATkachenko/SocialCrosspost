@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "devDependencies": {
     "flow-bin": "^0.41.0",
-    "flow-remove-types": "*"
+    "flow-remove-types": "*",
+    "commander": "*"
   },
   "scripts": {
     "build": "flow-remove-types -d lib/ src/",

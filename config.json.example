@@ -1,0 +1,22 @@
+{
+  "auth" : {
+    "vk" : {
+      "gid1": "token1",
+      "gid2": "token2"
+    },
+    "telegramm" : {
+      "channel1": "token1"
+    }
+  },
+  "crossPost": [
+    {
+      "from" : { 
+        "vk": [ "gid1" ]
+      },
+      "to": {
+        "vk": [ "gid2" ],
+        "telegramm": [ "channel1" ]
+      }
+    } 
+  ]
+}
