@@ -1,4 +1,5 @@
-# Social Cross-post
+# Social Cross-posting tool
+[![Build Status](https://travis-ci.org/IATkachenko/SocialCrosspost.svg?branch=master)](https://travis-ci.org/IATkachenko/SocialCrosspost)
 
 This tool used to make sync several social networks
 
