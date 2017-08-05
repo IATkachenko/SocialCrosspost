@@ -11,18 +11,19 @@ commandLine
 var config = new configFile(commandLine.config).get();
 
 for (var crosspost of config.crossPost) {
-  var data2Repost = [];
-  for (var source in crosspost["from"]) {
-    var sourceObject = new socialFile(source); 
-    for (var sourceId of crosspost["from"][source]) {
-      data2Repost.push(sourceObject.get(sourceId, data2Repost));
+  var destinations = [];
+  
+  for (var dst in crosspost["to"]) {
+    for (var dstId of crosspost["to"][dst]) {
+      var dstObject = new socialFile(dst, config["auth"][dst][dstId]["id"], config["auth"][dst][dstId]["key"], dstId); 
+      destinations.push(dstObject);
     }
   }
 
-  for (var dst in crosspost["to"]) {
-    var dstObject = new socialFile(dst);
-    for (var dstId of crosspost["to"][dst]) {
-      dstObject.put(dstId, data2Repost);
+  for (var source in crosspost["from"]) {
+    for (var sourceId of crosspost["from"][source]) {
+      var sourceObject = new socialFile(source, config["auth"][source][sourceId]["id"], config["auth"][source][sourceId]["key"], sourceId); 
+      sourceObject.get(destinations);
     }
   }
 }
