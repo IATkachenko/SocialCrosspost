@@ -4,7 +4,8 @@
   "devDependencies": {
     "flow-bin": "^0.41.0",
     "flow-remove-types": "*",
-    "commander": "*"
+    "commander": "*",
+    "https": "*"
   },
   "scripts": {
     "build": "flow-remove-types -d lib/ src/",
