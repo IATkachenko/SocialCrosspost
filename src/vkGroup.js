@@ -16,10 +16,12 @@ class vkGroup extends vkApi {
   get(destinations: Array<socialNetwork>) {
     log.write('Will get data from '+ this.gid);
 
-    this.on('done:wall.get', function(_o) {
-       log.write('Got response!');
-       log.write(_o);
-       log.write('Will write to: ');
+    this.on('done:wall.get', function(posts) {
+       var toRepost = [];
+       for (var post of posts['response']['items']) {
+         toRepost.push(this.filter(post));
+       }
+       log.write(toRepost);
        log.write(destinations);
        throw "Not yet implemented";
     });
