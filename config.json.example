@@ -1,8 +1,14 @@
 {
   "auth" : {
     "vk" : {
-      "gid1": "token1",
-      "gid2": "token2"
+      "gid1": { 
+        "id": "apId1", 
+        "key": "token1"
+      },
+      "gid2": {
+        "id": "appId2",
+        "key": "token2"
+      }
     },
     "telegramm" : {
       "channel1": "token1"

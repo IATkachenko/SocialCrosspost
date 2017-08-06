@@ -1,24 +1,19 @@
 // @flow
 'use strict';
-var log = require("./logger.js");
-class social {
-  network: string;
+const log = require('./logger.js');
+const socialNetwork = require('./socialNetwork.js');
 
-  constructor(network: string) {
-    this.network = network;
-    switch (network) {
-      default:
-        log.write('Using default network! It MUST raise an error!!!');
-        break
+class social {
+  constructor(networkName: string, appId: number, appKey: string, id: number) {
+    var result: socialNetwork;
+    switch (networkName) {
+      case 'vk':
+        var vkGroup = require('./vkGroup.js');
+        result = new vkGroup(appKey, id);
+        break;
     }
-  }
-  
-  get(id: string, data: Array<mixed>) {
-    log.write('Abstract getter called for ' + id + ' from ' + this.network);
-  }
- 
-  put(id: string, data: Array<mixed>) {
-    log.write("Abstract putter called for id " + id + ' from ' + this.network);
+    return result;
   }
 }
+
 module.exports = social;
