@@ -21,9 +21,10 @@ class vkGroup extends vkApi {
        for (var post of posts['response']['items']) {
          toRepost.push(this.filter(post));
        }
-       log.write(toRepost);
-       log.write(destinations);
-       throw "Not yet implemented";
+       
+       for (var d of destinations) {
+         d.put(toRepost);
+       }
     });
     this.request('wall.get', {'owner_id': this.gid});
   }
