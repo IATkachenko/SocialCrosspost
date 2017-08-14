@@ -1,7 +1,7 @@
 'use strict';
 class logger {
   write(str) {
-    console.log(str);
+    console.log(new Date().toISOString() + ': '+ str);
   }
 }
 
