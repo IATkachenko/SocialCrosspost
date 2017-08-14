@@ -9,7 +9,7 @@ class socialFactory {
     switch (networkName) {
       case 'vk':
         var vkGroup = require('./vkGroup.js');
-        result = new vkGroup(appKey, id);
+        result = new vkGroup(appKey, appId, id);
         break;
     }
     return result;
