@@ -1,7 +1,7 @@
 var commandLine = require('commander');
 var log = require('./lib/logger.js');
 var configFile = require('./lib/config.js');
-var social = require('./lib/social.js');
+var socialFactory = require('./lib/socialFactory.js');
  
 commandLine
   .version('0.1.0')
@@ -15,14 +15,14 @@ for (var crosspost of config.crossPost) {
   
   for (var dst in crosspost["to"]) {
     for (var dstId of crosspost["to"][dst]) {
-      var dstObject = new social(dst, config["auth"][dst][dstId]["id"], config["auth"][dst][dstId]["key"], dstId); 
+      var dstObject = socialFactory.create(dst, config["auth"][dst][dstId]["id"], config["auth"][dst][dstId]["key"], dstId); 
       destinations.push(dstObject);
     }
   }
 
   for (var source in crosspost["from"]) {
     for (var sourceId of crosspost["from"][source]) {
-      var sourceObject = new social(source, config["auth"][source][sourceId]["id"], config["auth"][source][sourceId]["key"], sourceId); 
+      var sourceObject = socialFactory.create(source, config["auth"][source][sourceId]["id"], config["auth"][source][sourceId]["key"], sourceId); 
       sourceObject.get(destinations);
     }
   }

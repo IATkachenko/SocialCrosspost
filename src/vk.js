@@ -11,8 +11,13 @@ const apiUrl = 'https://api.vk.com/method';
 class vk extends socialNetwork {
   apiKey: string;
 
-  constructor(key: string) {
+  constructor(key: string, appId: number) {
     super('vk');
+ 
+    if (key == '') {
+      throw 'Empty key found!. Please go to https://oauth.vk.com/authorize?client_id=' + appId + '&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=wall,offline&response_type=token&v=' + apiVersion + '&state=' + Date.now() + ' and put access_token from url string to config file!';
+    }
+  
     this.apiKey = key;
   }
 

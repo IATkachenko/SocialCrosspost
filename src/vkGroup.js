@@ -8,8 +8,8 @@ class vkGroup extends vkApi {
   gid: number;
   key: string;
   
-  constructor(key: string, gid: number) {
-    super(key);
+  constructor(key: string, appId: number, gid: number) {
+    super(key, appId);
     this.gid = gid;
   }
 
