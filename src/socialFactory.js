@@ -3,8 +3,8 @@
 const log = require('./logger.js');
 const socialNetwork = require('./socialNetwork.js');
 
-class social {
-  constructor(networkName: string, appId: number, appKey: string, id: number) {
+class socialFactory {
+  create(networkName: string, appId: number, appKey: string, id: number) {
     var result: socialNetwork;
     switch (networkName) {
       case 'vk':
@@ -14,6 +14,8 @@ class social {
     }
     return result;
   }
-}
 
-module.exports = social;
+  
+}
+var sf = new socialFactory();
+module.exports = sf;
